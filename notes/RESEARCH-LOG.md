@@ -23,3 +23,26 @@
 - runnable skills: 0
 
 ---
+
+## 2026-03-31: 脚本注入与流式生成机制
+
+**研究主题**: 脚本注入与流式生成
+
+**研究问题**: Monkey 的脚本注入与流式生成机制
+
+**仓库**: [Monkey](https://github.com/zhuweileo/Monkey)
+
+**核心发现**:
+- 使用 `chrome.scripting.executeScript({ world: 'MAIN' })` 绕过页面 CSP，间接 eval `(0, eval)(src)` 在全局作用域执行
+- 两个注入时机：用户确认后立即执行 + 页面加载自动注入
+- SSE 流式响应：ReadableStream → TextDecoder → 逐行解析 data: 前缀
+- AI 输出使用 XML 标签格式（`<DESCRIPTION>` + `<SCRIPT>`），正则解析
+- AbortController 实现取消机制
+- Content Script 极简设计，仅保持消息通道
+
+**进度（持续更新）**:
+- questions: 1
+- notes: 1
+- guides: 0
+- skill templates: 0
+- runnable skills: 0

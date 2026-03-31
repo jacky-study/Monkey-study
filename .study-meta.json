@@ -46,10 +46,43 @@
         "hasSkillTemplate": false,
         "hasRunnableSkill": false
       }
+    },
+    {
+      "id": "script-injection-streaming",
+      "name": "脚本注入与流式生成",
+      "category": "implementation",
+      "tags": ["csp-bypass", "world-main", "sse-streaming", "eval", "abort-controller"],
+      "state": "active",
+      "progress": {
+        "questionCount": 1,
+        "noteCount": 1,
+        "guideCount": 0,
+        "skillTemplateCount": 0,
+        "runnableSkillCount": 0,
+        "lastActivityAt": "2026-03-31T19:30:00+08:00"
+      },
+      "questions": [
+        {
+          "id": "q-002",
+          "text": "Monkey 的脚本注入与流式生成机制",
+          "createdAt": "2026-03-31T19:25:00+08:00"
+        }
+      ],
+      "artifacts": [
+        {
+          "type": "note",
+          "path": "notes/script-injection-and-streaming.md",
+          "createdAt": "2026-03-31T19:30:00+08:00"
+        }
+      ],
+      "skillPackaging": {
+        "hasSkillTemplate": false,
+        "hasRunnableSkill": false
+      }
     }
   ],
   "timestamps": {
     "createdAt": "2026-03-31T19:15:00+08:00",
-    "lastUpdated": "2026-03-31T19:20:00+08:00"
+    "lastUpdated": "2026-03-31T19:30:00+08:00"
   }
 }
