@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "2.0",
+  "managedBy": {
+    "skill": "repo-study",
+    "createdBySkill": true,
+    "createdAt": "2026-03-31T19:15:00+08:00"
+  },
+  "repo": {
+    "name": "Monkey",
+    "url": "https://github.com/zhuweileo/Monkey.git",
+    "githubUrl": "https://github.com/zhuweileo/Monkey",
+    "owner": "zhuweileo",
+    "branch": "main",
+    "commitSha": "cd8793d97425b92218627d8fdd3dd94938b43f95"
+  },
+  "topics": [],
+  "timestamps": {
+    "createdAt": "2026-03-31T19:15:00+08:00",
+    "lastUpdated": "2026-03-31T19:15:00+08:00"
+  }
+}
