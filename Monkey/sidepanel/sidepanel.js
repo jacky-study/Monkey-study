@@ -124,11 +124,18 @@ async function getApiKey() {
 }
 
 async function getSettings() {
-  const result = await chrome.storage.local.get(['apiKey', 'apiEndpoint', 'modelId']);
+  const result = await chrome.storage.local.get(['apiKey', 'apiEndpoint', 'modelId', 'provider']);
+  const provider = result.provider || 'openai';
+  const defaults = {
+    openai: { endpoint: 'https://api.openai.com/v1/chat/completions', model: 'gpt-4o' },
+    claude: { endpoint: 'https://api.anthropic.com/v1/messages', model: 'claude-sonnet-4-6' },
+    custom: { endpoint: 'https://api.openai.com/v1/chat/completions', model: 'gpt-4o' },
+  };
   return {
+    provider,
     apiKey: result.apiKey || '',
-    endpoint: result.apiEndpoint || 'https://api.openai.com/v1/chat/completions',
-    model: result.modelId || 'gpt-4o',
+    endpoint: result.apiEndpoint || defaults[provider].endpoint,
+    model: result.modelId || defaults[provider].model,
   };
 }
 
@@ -440,13 +447,28 @@ function guessPattern(url) {
 }
 
 async function callAIStreaming(settings, systemPrompt, userMsg, signal) {
-  const response = await fetch(settings.endpoint, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${settings.apiKey}`,
-    },
-    body: JSON.stringify({
+  // 根据 provider 构建不同的请求 headers 和 body
+  const isClaude = settings.provider === 'claude';
+
+  const headers = { 'Content-Type': 'application/json' };
+  let body;
+
+  if (isClaude) {
+    // Claude API 使用不同的认证方式和请求格式
+    headers['anthropic-version'] = '2023-06-01';
+    headers['x-api-key'] = settings.apiKey;
+    body = {
+      model: settings.model,
+      max_tokens: 4096,
+      system: systemPrompt,
+      messages: [{ role: 'user', content: userMsg }],
+      stream: true,
+      temperature: 0.2,
+    };
+  } else {
+    // OpenAI 兼容格式
+    headers['Authorization'] = `Bearer ${settings.apiKey}`;
+    body = {
       model: settings.model,
       messages: [
         { role: 'system', content: systemPrompt },
@@ -454,7 +476,13 @@ async function callAIStreaming(settings, systemPrompt, userMsg, signal) {
       ],
       stream: true,
       temperature: 0.2,
-    }),
+    };
+  }
+
+  const response = await fetch(settings.endpoint, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(body),
     signal,
   });
 
@@ -484,7 +512,19 @@ async function callAIStreaming(settings, systemPrompt, userMsg, signal) {
 
       try {
         const parsed = JSON.parse(data);
-        const delta = parsed.choices?.[0]?.delta?.content || '';
+        // Claude 和 OpenAI 的流式响应字段不同
+        let delta;
+        if (isClaude) {
+          // Claude SSE: event types include content_block_delta
+          if (parsed.type === 'content_block_delta' && parsed.delta?.text) {
+            delta = parsed.delta.text;
+          } else {
+            delta = '';
+          }
+        } else {
+          // OpenAI SSE: choices[0].delta.content
+          delta = parsed.choices?.[0]?.delta?.content || '';
+        }
         accumulated += delta;
         previewBuffer += delta;
 
