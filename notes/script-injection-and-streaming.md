@@ -1,3 +1,10 @@
+---
+article_id: OBA-7327s3jp
+tags: [open-source, Monkey, script-injection-and-streaming.md, chrome-extension, ai]
+type: learning
+updated_at: 2026-04-01
+---
+
 # 脚本注入与流式生成机制
 
 > 深入分析 Monkey 的两个核心技术实现：如何安全地将 AI 代码注入任意网页（绕过 CSP），以及如何实现流式预览的代码生成体验。

@@ -1,3 +1,10 @@
+---
+article_id: OBA-te9op7ij
+tags: [open-source, Monkey, RESEARCH-LOG.md, chrome-extension, ai, git]
+type: note
+updated_at: 2026-04-01
+---
+
 # 研究日志
 
 ## 2026-03-31: Monkey 整体架构设计

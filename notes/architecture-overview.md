@@ -1,3 +1,10 @@
+---
+article_id: OBA-56n0ddy6
+tags: [open-source, Monkey, architecture-overview.md, chrome-extension, ai]
+type: learning
+updated_at: 2026-04-01
+---
+
 # Monkey 整体架构设计
 
 > Monkey 是一个 Chrome 扩展（Manifest V3），通过自然语言描述需求，AI 生成用户脚本并自动注入网页。整个项目零依赖、约 1600 行 JS，架构清晰简洁。

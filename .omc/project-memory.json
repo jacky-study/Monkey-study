@@ -1,0 +1,133 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775237417718,
+  "projectRoot": "/Users/jiashengwang/jacky-github/Monkey-study",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "scripts"
+    ],
+    "gitBranches": {
+      "defaultBranch": "master",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "Monkey": {
+      "path": "Monkey",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1775237417701,
+      "keyFiles": [
+        "README.md",
+        "TODOS.md",
+        "manifest.json"
+      ]
+    },
+    "notes": {
+      "path": "notes",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1775237417703,
+      "keyFiles": [
+        "RESEARCH-LOG.md",
+        "architecture-overview.md",
+        "script-injection-and-streaming.md"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 2,
+      "lastAccessed": 1775237417703,
+      "keyFiles": [
+        "repo-study-status.sh",
+        "test-api-providers.mjs"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "Monkey/manifest.json",
+      "accessCount": 1,
+      "lastAccessed": 1775237472662,
+      "type": "file"
+    },
+    {
+      "path": "Monkey/sidepanel/index.html",
+      "accessCount": 1,
+      "lastAccessed": 1775237484655,
+      "type": "file"
+    },
+    {
+      "path": "Monkey/background/service-worker.js",
+      "accessCount": 1,
+      "lastAccessed": 1775237484792,
+      "type": "file"
+    },
+    {
+      "path": "Monkey/options/options.js",
+      "accessCount": 1,
+      "lastAccessed": 1775237485018,
+      "type": "file"
+    },
+    {
+      "path": "Monkey/content/content.js",
+      "accessCount": 1,
+      "lastAccessed": 1775237485197,
+      "type": "file"
+    },
+    {
+      "path": "Monkey/README.md",
+      "accessCount": 1,
+      "lastAccessed": 1775237485266,
+      "type": "file"
+    },
+    {
+      "path": "Monkey/sidepanel/sidepanel.js",
+      "accessCount": 1,
+      "lastAccessed": 1775237485325,
+      "type": "file"
+    },
+    {
+      "path": "Monkey/design/tokens.css",
+      "accessCount": 1,
+      "lastAccessed": 1775237485380,
+      "type": "file"
+    },
+    {
+      "path": "Monkey/options/index.html",
+      "accessCount": 1,
+      "lastAccessed": 1775237485442,
+      "type": "file"
+    },
+    {
+      "path": "notes/onboarding.md",
+      "accessCount": 1,
+      "lastAccessed": 1775237628565,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
